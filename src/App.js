@@ -1,9 +1,9 @@
+import IndexPage from "./components/pages/IndexPage";
+
 function App() {
-  return (
-    <div>
-      App.js
-    </div>
-  );
+    return (
+        <IndexPage />
+    );
 }
 
 export default App;
