@@ -1,15 +1,35 @@
+import { useState } from "react";
+import "./IndexPage.css";
+import Vertex from "../Vertex";
+
 function IndexPage() {
+    const [ vertexSet, setVertexSet ] = useState([ ]);
+    const [ inputName, setInputName ] = useState("");
+    const defaultPosition = { x: 100, y: 100 };
+    const addVertex = (name) => {
+        const newVertexSet = [ ...vertexSet ];
+        newVertexSet.push(<Vertex key={ vertexSet.length + 1 } name={ name } position={ defaultPosition }/>);
+        setVertexSet(newVertexSet);
+    }
     return (
-        <div>
+        <div className="container">
             <header>
-                <h1>Graph</h1>
+                <h1 className="title">Graph</h1>
             </header>
             <section>
                 <div>
-                    <p>Add vertex</p>
+                    <input type="text" onChange={ (e) => setInputName(e.target.value) }/>
+                    <button className="btn" onClick={ (e) => {
+                        console.log("here");
+                        const name = inputName;
+                        setInputName("");
+                        addVertex(name);
+                    } }>Add vertex</button>
                 </div>
-                <div>
-                    (Graph will be presented here)
+                <div className="vertex-container">
+                    {
+                        vertexSet.map((elem) => elem)
+                    }
                 </div>
             </section>
         </div>
