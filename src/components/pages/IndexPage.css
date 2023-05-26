@@ -1,0 +1,62 @@
+/*
+
+MAIN COLOR: #1c7ed6
+SUB COLOR: #a5d8ff
+
+GRAY COLOR: #495057
+SUB GRAY COLOR: #f8f9fa
+
+ */
+
+* {
+    font-family: sans-serif;
+    color: #495057;
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body, #root, .App {
+    height: 100%;
+}
+
+.container {
+    padding: 10px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    height: 100%;
+}
+
+.title {
+    color: #1c7ed6;
+    font-size: 72px;
+    margin-left: 28px;
+    margin-top: 14px;
+}
+
+section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: 48px;
+}
+
+.btn {
+    border: none;
+    background-color: #1c7ed6;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    border: 1px solid #1c7ed6;
+    padding: 15px;
+    background-color: #f8f9fa;
+    color: #1c7ed6;
+}

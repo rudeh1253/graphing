@@ -1,12 +1,14 @@
+import "./IndexPage.css";
+
 function IndexPage() {
     return (
-        <div>
+        <div className="container">
             <header>
-                <h1>Graph</h1>
+                <h1 className="title">Graph</h1>
             </header>
             <section>
                 <div>
-                    <p>Add vertex</p>
+                    <button className="btn">Add vertex</button>
                 </div>
                 <div>
                     (Graph will be presented here)
