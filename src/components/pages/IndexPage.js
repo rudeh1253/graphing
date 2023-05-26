@@ -8,7 +8,7 @@ function IndexPage() {
     const defaultPosition = { x: 100, y: 100 };
     const addVertex = (name) => {
         const newVertexSet = [ ...vertexSet ];
-        newVertexSet.push(<Vertex name={ name } position={ defaultPosition }/>);
+        newVertexSet.push(<Vertex key={ vertexSet.length + 1 } name={ name } position={ defaultPosition }/>);
         setVertexSet(newVertexSet);
     }
     return (
@@ -26,7 +26,7 @@ function IndexPage() {
                         addVertex(name);
                     } }>Add vertex</button>
                 </div>
-                <div>
+                <div className="vertex-container">
                     {
                         vertexSet.map((elem) => elem)
                     }
