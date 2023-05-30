@@ -46,10 +46,10 @@ function IndexPage() {
             </header>
             <section>
                 <div>
-                    <input type="text" onChange={ (e) => setInputName(e.target.value) }/>
+                    <input id="vertex-name" type="text" onChange={ (e) => setInputName(e.target.value) }/>
                     <button className="btn" onClick={ (e) => {
                         const name = inputName;
-                        setInputName("");
+                        document.getElementById("vertex-name").value = "";
                         addVertex(name);
                     } }>Add vertex</button>
                 </div>
