@@ -1,3 +1,4 @@
+import { vertexHeight, vertexWidth } from '../data/Constants';
 import './Vertex.css';
 
 function Vertex(props) {
@@ -6,9 +7,9 @@ function Vertex(props) {
     const onClick = props.onClick;
     const id = props.id;
     return (
-        <div className="vertex" style={ { top: `${position.y}px`, left: `${position.x}px` } }
+        <div className="vertex" style={ { width: `${vertexWidth}px`, height: `${vertexHeight}px`, top: `${position.y}px`, left: `${position.x}px` } }
              onClick={ onClick } id={ `div-${ id }` }>
-            <p id={ `p-${ id }` }>{ name }</p>
+            <p className="vertex-name" id={ `p-${ id }` }>{ name }</p>
         </div>
     )
 }
