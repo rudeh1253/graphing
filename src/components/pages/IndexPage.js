@@ -59,7 +59,7 @@ function IndexPage() {
                         addVertex(name);
                     }}>Add vertex</button>
                 </div>
-                <div className="vertex-container" ref={graphRef}>
+                <div className="graph-container" ref={graphRef}>
                     <svg viewBox="0 0 1250 800">
                         {
                             vertexSet.map((elem) => <Vertex key={elem.key} name={elem.name} position={elem.position} id={elem.id}
