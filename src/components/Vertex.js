@@ -7,9 +7,9 @@ function Vertex(props) {
     const onClick = props.onClick;
     const id = props.id;
     return (
-        <div className="vertex" style={ { width: `${vertexWidth}px`, height: `${vertexHeight}px`, top: `${position.y}px`, left: `${position.x}px` } }
-             onClick={ onClick } id={ `div-${ id }` }>
-            <p className="vertex-name" id={ `p-${ id }` }>{ name }</p>
+        <div className="vertex" style={{ width: `${vertexWidth}px`, height: `${vertexHeight}px`, top: `${position.y}px`, left: `${position.x}px` }}
+            onClick={onClick} id={`div-${id}`}>
+            <p className="vertex-name" id={`p-${id}`}>{name}</p>
         </div>
     )
 }
