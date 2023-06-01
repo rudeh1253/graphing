@@ -1,4 +1,3 @@
-import { vertexHeight, vertexWidth } from '../data/Constants';
 import './Vertex.css';
 
 function Vertex(props) {
@@ -7,10 +6,8 @@ function Vertex(props) {
     const onClick = props.onClick;
     const id = props.id;
     return (
-        <div className="vertex" style={{ width: `${vertexWidth}px`, height: `${vertexHeight}px`, top: `${position.y}px`, left: `${position.x}px` }}
-            onClick={onClick} id={`div-${id}`}>
-            <p className="vertex-name" id={`p-${id}`}>{name}</p>
-        </div>
+        <rect className="vertex" id={`rect-${id}`} width="100" height="100" x={position.x} y={position.y}
+             onClick={ onClick } />
     )
 }
 
