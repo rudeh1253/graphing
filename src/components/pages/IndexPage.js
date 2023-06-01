@@ -20,15 +20,13 @@ function IndexPage() {
     }
 
     const graphRef = useRef();
-    const vertexRect = { x: 58, y: 224 };
     useEffect(() => {
         const rect = graphRef.current.getBoundingClientRect();
-        console.log(rect.width);
         const followMouse = (e) => {
             const mousePos = { x: e.clientX, y: e.clientY };
             const vertexPos = {
-                x: (mousePos.x - rect.x) / rect.width * 1000 - 25,
-                y: (mousePos.y - rect.y) / rect.height * 500 - 25
+                x: (mousePos.x - rect.x) - 25,
+                y: (mousePos.y - rect.y) - 25
             };
             if (isVertexFollowingPointer) {
                 const newVertexSet = [...vertexSet];
@@ -62,7 +60,7 @@ function IndexPage() {
                     }}>Add vertex</button>
                 </div>
                 <div className="vertex-container" ref={graphRef}>
-                    <svg viewBox="0 0 1000 500">
+                    <svg viewBox="0 0 1250 800">
                         {
                             vertexSet.map((elem) => <Vertex key={elem.key} name={elem.name} position={elem.position} id={elem.id}
                                 onClick={(e) => {
