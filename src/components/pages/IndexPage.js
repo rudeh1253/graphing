@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./IndexPage.css";
 import Vertex from "../Vertex";
+import { vertexHeight, vertexWidth } from "../../data/Constants";
 
 function IndexPage() {
     const [vertexSet, setVertexSet] = useState([]);
@@ -25,8 +26,8 @@ function IndexPage() {
         const followMouse = (e) => {
             const mousePos = { x: e.clientX, y: e.clientY };
             const vertexPos = {
-                x: (mousePos.x - rect.x) - 25,
-                y: (mousePos.y - rect.y) - 25
+                x: (mousePos.x - rect.x) - (vertexWidth / 2),
+                y: (mousePos.y - rect.y) - (vertexHeight / 2)
             };
             if (isVertexFollowingPointer) {
                 const newVertexSet = [...vertexSet];

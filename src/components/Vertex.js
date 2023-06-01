@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './Vertex.css';
+import { vertexHeight, vertexWidth } from '../data/Constants';
 
 function Vertex(props) {
     const name = props.name;
@@ -18,9 +19,9 @@ function Vertex(props) {
     }, [position]);
     return (
         <>
-            <rect className="vertex" id={`rect-${id}`} width="100" height="100" x={position.x} y={position.y} fill='#1c7ed6'
-                onClick={ onClick } ref={rectRef} />
-            <text x={position.x} y={position.y} fontSize={18} ref={textRef}>{name}</text>
+            <rect className="vertex" id={`rect-${id}`} width={vertexWidth} height={vertexHeight} x={position.x} y={position.y} fill='#1c7ed6'
+                onClick={onClick} ref={rectRef} rx={15}/>
+            <text id={`text-${id}`} x={position.x} y={position.y} fontSize={18} onClick={onClick} ref={textRef}>{name}</text>
         </>
     )
 }
