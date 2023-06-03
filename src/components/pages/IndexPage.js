@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./IndexPage.css";
 import Vertex from "../Vertex";
 import { vertexHeight, vertexWidth } from "../../data/Constants";
+import { addEdge } from "../../helper/edgeHelper";
 
 function IndexPage() {
     const [vertexSet, setVertexSet] = useState([]);
@@ -66,7 +67,17 @@ function IndexPage() {
                     <input type="number" onChange={(e) => null} ref={edgeSourceInputRef} />
                     <input type="number" onChange={(e) => null} ref={edgeTargetInputRef} />
                     <button type="button" className="btn" onClick={(e) => {
-                        // Add edge
+                        let sourceVertex = null;
+                        let targetVertex = null;
+                        for (let vertex of vertexSet) {
+                            if (vertex.id == edgeSourceInputRef.current.value) {
+                                sourceVertex = vertex;
+                            }
+                            if (vertex.id == edgeTargetInputRef.current.value) {
+                                targetVertex = vertex;
+                            }
+                        }
+                        addEdge(sourceVertex, targetVertex);
                     }}>Add edge</button>
                 </div>
                 <div className="graph-container" ref={graphRef}>
