@@ -20,6 +20,9 @@ function IndexPage() {
         setVertexSet(newVertexSet);
     }
 
+    const edgeSourceInputRef = useRef();
+    const edgeTargetInputRef = useRef();
+
     const graphRef = useRef();
     useEffect(() => {
         const rect = graphRef.current.getBoundingClientRect();
@@ -34,7 +37,6 @@ function IndexPage() {
                 for (let vertex of newVertexSet) {
                     if (vertex.id == pickedVertexId) {
                         vertex.position = vertexPos;
-                        console.log(vertexPos);
                         setVertexSet(newVertexSet);
                         break;
                     }
@@ -59,6 +61,13 @@ function IndexPage() {
                         document.getElementById("vertex-name").value = "";
                         addVertex(name);
                     }}>Add vertex</button>
+                </div>
+                <div>
+                    <input type="number" onChange={(e) => null} ref={edgeSourceInputRef} />
+                    <input type="number" onChange={(e) => null} ref={edgeTargetInputRef} />
+                    <button type="button" className="btn" onClick={(e) => {
+                        // Add edge
+                    }}>Add edge</button>
                 </div>
                 <div className="graph-container" ref={graphRef}>
                     <svg viewBox="0 0 1250 800">
