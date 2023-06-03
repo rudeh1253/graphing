@@ -14,5 +14,12 @@
  * @returns path
  */
 export function getPath(sPos, tPos) {
-    return null;
+    // TODO: Make test codes using Jest
+    const verticalDisplace = tPos.y - sPos.y;
+    const horizaontalDisplace = tPos.x - sPos.x;
+    if (Math.abs(verticalDisplace) > Math.abs(horizaontalDisplace)) {
+        return `M${sPos.x},${sPos.y} L${sPos.x},${sPos.y + (verticalDisplace / 2)}L `;
+    } else {
+
+    }
 }

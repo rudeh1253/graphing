@@ -6,6 +6,7 @@ import { addEdge } from "../../helper/edgeHelper";
 
 function IndexPage() {
     const [vertexSet, setVertexSet] = useState([]);
+    const [edgeSet, setEdgeSet] = useState([]);
     const [inputName, setInputName] = useState("");
     const [pickedVertexId, setPickedVertexId] = useState(-1);
     const [isVertexFollowingPointer, setIsVertexFollowingPointer] = useState(false);
