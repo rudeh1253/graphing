@@ -1,0 +1,12 @@
+.vertex {
+    border-radius: 10px;
+    background-color: #1c7ed6;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vertex-name {
+    color: #fff;
+}
