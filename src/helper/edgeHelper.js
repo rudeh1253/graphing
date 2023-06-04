@@ -4,7 +4,7 @@
  * The path consists of straight lines, allowing at most two
  * right angle curves.
  * If vertical displace is bigger than horizontal displace,
- * the edge starts to go forward vertically, otherwise
+ * the edge goes forward vertically at first, otherwise
  * horizontally.
  * The first curve appears at the middle spot.
  * e.g. If sPos = (0, 0) and tPos = (200, 50)
@@ -14,12 +14,11 @@
  * @returns path
  */
 export function getPath(sPos, tPos) {
-    // TODO: Make test codes using Jest
     const verticalDisplace = tPos.y - sPos.y;
     const horizaontalDisplace = tPos.x - sPos.x;
     if (Math.abs(verticalDisplace) > Math.abs(horizaontalDisplace)) {
-        return `M${sPos.x},${sPos.y} L${sPos.x},${sPos.y + (verticalDisplace / 2)}L `;
-    } else {
-
+        return `M${sPos.x},${sPos.y} L${sPos.x},${sPos.y + (verticalDisplace / 2)} L${tPos.x},${sPos.y + (verticalDisplace / 2)} L${tPos.x},${tPos.y}`;
+    } else {    
+        return `M${sPos.x},${sPos.y} L${sPos.x + (horizaontalDisplace / 2)},${sPos.y} L${sPos.x + (horizaontalDisplace / 2)},${tPos.y} L${tPos.x},${tPos.y}`;
     }
 }
