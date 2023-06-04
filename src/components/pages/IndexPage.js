@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./IndexPage.css";
 import Vertex from "../Vertex";
 import { vertexHeight, vertexWidth } from "../../data/Constants";
-import { addEdge } from "../../helper/edgeHelper";
+import Edge from "../Edge";
 
 function IndexPage() {
     const [vertexSet, setVertexSet] = useState([]);
@@ -78,7 +78,14 @@ function IndexPage() {
                                 targetVertex = vertex;
                             }
                         }
-                        addEdge(sourceVertex, targetVertex);
+                        const newEdgeSet = [...edgeSet];
+                        newEdgeSet.push({
+                            key: edgeSet.length + 1,
+                            source: sourceVertex,
+                            target: targetVertex,
+                            id: edgeSet.length + 1
+                        });
+                        setEdgeSet(newEdgeSet);
                     }}>Add edge</button>
                 </div>
                 <div className="graph-container" ref={graphRef}>
@@ -95,6 +102,9 @@ function IndexPage() {
                                         }
                                     }
                                 }} />)
+                        }
+                        {
+                            edgeSet.map((elem) => <Edge key={elem.key} source={elem.source} target={elem.target} />)
                         }
                     </svg>
                 </div>
